@@ -4,35 +4,32 @@
  * @author Will Ayers - will@wearemotive.com
 */
 
-(
-	function( $, document, undefined )
+( function( $, document, undefined )
 	{
-		$.fn.fetchIt = function ( options )
-		{
+		$.fn.fetchIt = function fetch_it_init( options ) {
 			// Default options
 			var defaults = {
-				'rel': 'prefetch prerender'
-			}
-			
-			// Merge default options and custom options
-			var options = $.extend( defaults, options );
-			
+					'rel': 'prefetch prerender'
+				},
+				o = $.extend( defaults, options );
+
 			return this.each(
-				
+
 				function()
 				{
 					// Start Plugin here
-					
-					var $this = $(this);
-					var prefetch_url = $this.attr('href');
-					options[prefetch_url] = true;
-					
-					if ( prefetch_url and ! options[prefetch_url] )
+
+					var $this = $(this),
+						prefetch_url = $this.attr('href');
+
+					o[prefetch_url] = true;
+
+					if ( prefetch_url && ! o[prefetch_url] )
 					{
 						$('<link />', { rel: options.rel, href: prefetch_url } ).appendTo( 'head' );
 					}
 				}
 			);
-		}
+		};
 	}
 ) ( jQuery, document );
