@@ -15,8 +15,7 @@
 
 			return this.each(
 
-				function()
-				{
+				function fetch_it_loop(){
 					// Start Plugin here
 
 					var $this = $(this),
