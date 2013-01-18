@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+</head>
+<body>
+    <h1>Example</h1>
+    <p>Click the links to see the next page load faster with prefetch</p>
+
+    <ul id="links">
+        <li><a href="example2.html">Example Link 2</a></li>
+        <li><a href="example3.html">Example Link 3</a></li>
+        <li><a href="example4.html">Example Link 4</a></li>
+    </ul>
+
+    <script src="../jquery.js"></script>
+    <script src="../jquery.fetchit.js"></script>
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                // Attach fetchIt to all links inside the ul#links
+                $('#links').find('a').fetchIt();
+            });
+        }(jQuery));
+    </script>
+</body>
+</html>

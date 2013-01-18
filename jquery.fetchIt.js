@@ -5,24 +5,26 @@
  * @version 0.1
 */
 
-(function ($, document, undefined) {
-	$.fn.fetchIt = function fetch_it_init(options) {
+(function ($, document) {
+	$.fn.fetchIt = function fetch_it_init(args) {
 		// Default options
 		var defaults = {
 				'rel': 'prefetch prerender'
 			},
-			o = $.extend(defaults, options);
+			options = $.extend(defaults, args),
+			urls = [];
 
 		return this.each(function fetch_it_loop() {
-			// Start Plugin here
-
 			var $this = $(this),
 				prefetch_url = $this.attr('href');
 
-			o[prefetch_url] = true;
-
-			if (prefetch_url && ! o[prefetch_url]) {
+			// Make sure we have not prefetched this url yet
+			if (typeof urls[prefetch_url] === "undefined") {
+				// Add prefetch link to head
 				$('<link />', {rel: options.rel, href: prefetch_url}).appendTo('head');
+
+				// Add url so not to add duplicate prefetch urls
+				urls[prefetch_url] = true;
 			}
 		});
 	};
