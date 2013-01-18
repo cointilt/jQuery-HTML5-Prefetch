@@ -1,6 +1,6 @@
 ## jQuery HTML5 Prefetch Plugin
 
-@version: 0.1
+@version: 1.0
 
 This adds prefetch link tags in the header based on selected elements assigned when calling this function.
 

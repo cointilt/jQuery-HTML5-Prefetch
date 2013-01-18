@@ -2,7 +2,7 @@
  * Fetch It ( fetchIt )
  *
  * @author Will Ayers - will@wearemotive.com
- * @version 0.1
+ * @version 1.0
 */
 
 (function ($, document) {
